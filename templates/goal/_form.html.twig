@@ -1,4 +1,9 @@
-{{ form_start(form) }}
+<div class="card-body">
+    {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+    {{ form_end(form) }}
+</div>
+<div class="card-footer">
+    <button class="btn btn-success float-end">{{ button_label|default('Save') }}</button>
+    <div class="clearfix"></div>
+</div>

@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ 'actions.edit'|trans }} {{ 'entity.goal'|trans }}{% endblock %}
-
+{% block card_actions %}
+    <a class="btn btn-link" href="{{ path('app_goal_index') }}">{{ 'actions.back'|trans }}</a>
+    {{ include('goal/_delete_form.html.twig') }}
+{% endblock %}
 {% block body %}
     {{ include('goal/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_goal_index') }}">{{ 'actions.back'|trans }}</a>
-
-    {{ include('goal/_delete_form.html.twig') }}
 {% endblock %}

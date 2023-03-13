@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ 'entity.goal'|trans }}{% endblock %}
-
+{% block card_actions %}
+    <a href="{{ path('app_goal_new') }}" class="btn btn-outline-primary">{{ 'actions.new'|trans }}</a>
+{% endblock %}
 {% block body %}
     <table class="table">
         <thead>
         <tr>
-            <th>{{ 'entity.id'|trans }}</th>
             <th>{{ 'entity.name'|trans }}</th>
             <th>{{ 'entity.professional'|trans }}</th>
             <th>{{ 'actions.actions'|trans }}</th>
@@ -15,21 +16,22 @@
         <tbody>
         {% for goal in goals %}
             <tr>
-                <td>{{ goal.id }}</td>
                 <td>{{ goal.name }}</td>
                 <td>{{ goal.professional ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_goal_show', {'id': goal.id}) }}">{{ 'actions.show'|trans }}</a>
-                    <a href="{{ path('app_goal_edit', {'id': goal.id}) }}">{{ 'actions.edit'|trans }}</a>
+                    <div class="btn-group btn-group-sm">
+                        <a href="{{ path('app_goal_show', {'id': goal.id}) }}"
+                           class="btn btn-link">{{ 'actions.show'|trans }}</a>
+                        <a href="{{ path('app_goal_edit', {'id': goal.id}) }}"
+                           class="btn btn-link">{{ 'actions.edit'|trans }}</a>
+                    </div>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">{{ 'messages.no_results'|trans }}</td>
+                <td colspan="3">{{ 'messages.no_results'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_goal_new') }}">{{ 'actions.new'|trans }}</a>
 {% endblock %}

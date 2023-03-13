@@ -2,3 +2,9 @@
 // --------------------------------------------------
 @import "variables";
 @import "bootstrap";
+
+.card {
+  table.table {
+    margin-bottom: 0;
+  }
+}
