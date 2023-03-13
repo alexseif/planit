@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'entity.goal'|trans }}{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>{{ 'entity.id'|trans }}</th>
+                <td>{{ goal.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'entity.name'|trans }}</th>
+                <td>{{ goal.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'entity.professional'|trans }}</th>
+                <td>{{ goal.professional ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_goal_index') }}">{{ 'actions.back'|trans }}</a>
+
+    <a href="{{ path('app_goal_edit', {'id': goal.id}) }}">{{ 'actions.edit'|trans }}</a>
+
+    {{ include('goal/_delete_form.html.twig') }}
+{% endblock %}

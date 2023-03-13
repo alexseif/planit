@@ -1,19 +1,56 @@
+{# templates/base.html.twig #}
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <title>{% block title_html %}{{ block('title')|striptags }}{% endblock %} {{ 'plan_it'|trans }}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+{% block body_wrapper %}
+    <div class="container-fluid mb-5">
+        {% block main_nav %} {% include '_main_nav.html.twig' %} {% endblock %}
+    </div>
+    {% block container %}
+        <div class="container">
+            <div class="card">
+                {% block card %}
+                    {% block card_header %}
+                        <div class="card-header d-flex justify-content-between">
+                            <h1>{% block title %}{{ 'plan_it'|trans }}{% endblock %}</h1>
+                            <div class="card-actions">
+                                {#                            <div class="btn-toolbar"> #}
+                                <div class="btn-group" role="group" aria-label="{{ 'actions.card'|trans }}">
+                                    {% block card_actions %}
+                                        <a href="/list" class="btn btn-primary btn-large">{{ 'pages.list'|trans }}</a>
+                                        <a href="/about" class="btn btn-primary btn-large">{{ 'pages.about'|trans }}</a>
+                                        <a href="/" class="btn btn-primary btn-large">{{ 'pages.home'|trans }}</a>
+                                    {% endblock %}
+                                </div><!-- .btn-toolbar -->
+                            </div><!-- .card-actions -->
+                        </div><!-- .card-header -->
+                    {% endblock %}
+                    {% block card_body %}
+                        <div class="content card-body" id="content">
+                            {% block body %}{% endblock %}
+                        </div><!-- .content .card-body -->
+                    {% endblock %}
+                    {% block card_footer %} {% endblock %}
+                {% endblock %}
+            </div><!-- .card -->
+        </div><!-- .container -->
+    {% endblock %}
+    {% block footer %} {% include '_footer.html.twig' %} {% endblock %}
+{% endblock %}
+</body>
 </html>

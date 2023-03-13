@@ -1,0 +1,32 @@
+plan_it: 'Plan It'
+plan_it_description: 'Plan It is a simple project management tool for small teams.'
+
+pages:
+  about: 'About'
+  home: 'Home'
+  list: 'List'
+
+entity:
+  id: 'ID'
+  name: 'Name'
+  professional: 'Professional'
+  goal: 'Goal'
+
+actions:
+  actions: 'Actions'
+  new: 'New'
+  edit: 'Edit'
+  delete: 'Delete'
+  show: 'Show'
+  save: 'Save'
+  cancel: 'Cancel'
+  card: 'Card Actions'
+  search: 'Search'
+  toggle_navigation: 'Toggle navigation'
+  back: 'Back'
+
+messages:
+  no_results: 'No results found.'
+  no_results_description: 'No results found for your search.'
+  no_results_description_2: 'Try to change your search criteria.'
+  no_results_description_3: 'If you think this is an error, please contact us.'
