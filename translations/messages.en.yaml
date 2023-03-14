@@ -12,6 +12,7 @@ entity:
   professional: 'Professional'
   goal: 'Goal'
   goals: 'Goals'
+  activity: 'Activity'
 
 actions:
   actions: 'Actions'

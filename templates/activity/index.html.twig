@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'entity.activity'|trans }}{% endblock %}
+{% block card_actions %}
+    <a class="btn btn-outline-primary" href="{{ path('app_activity_new') }}">{{ 'actions.new'|trans }}</a>
+{% endblock %}
+{% block body %}
+    <ul class="list-group">
+        {% for activity in activities %}
+            <li class="list-group-item">
+                <a href="{{ path('app_activity_show', {'id': activity.id}) }}">{{ activity.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

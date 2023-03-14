@@ -5,27 +5,19 @@ namespace App\Entity;
 use App\Repository\GoalRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=GoalRepository::class)
- */
+#[ORM\Entity(repositoryClass: GoalRepository::class)]
 class Goal
 {
 
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: "integer")]
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
+    #[ORM\Column(type: "string", length: 255)]
     private $name;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: "boolean")]
     private $professional;
 
     public function getId(): ?int
@@ -33,12 +25,10 @@ class Goal
         return $this->id;
     }
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
+    public function setId(int $id): self
     {
         $this->id = $id;
+        return $this;
     }
 
     public function getName(): ?string
@@ -49,7 +39,6 @@ class Goal
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -61,7 +50,6 @@ class Goal
     public function setProfessional(bool $professional): self
     {
         $this->professional = $professional;
-
         return $this;
     }
 
