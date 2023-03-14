@@ -50,7 +50,7 @@ class GoalController extends AbstractController
             );
         }
 
-        return $this->renderForm('goal / new.html . twig', [
+        return $this->renderForm('goal/new.html.twig', [
           'goal' => $goal,
           'form' => $form,
         ]);
@@ -61,7 +61,7 @@ class GoalController extends AbstractController
      */
     public function show(Goal $goal): Response
     {
-        return $this->render('goal / show . html . twig', [
+        return $this->render('goal/show.html.twig', [
           'goal' => $goal,
         ]);
     }
@@ -87,7 +87,7 @@ class GoalController extends AbstractController
             );
         }
 
-        return $this->renderForm('goal / edit . html . twig', [
+        return $this->renderForm('goal/edit.html.twig', [
           'goal' => $goal,
           'form' => $form,
         ]);
