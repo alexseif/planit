@@ -12,7 +12,9 @@
                     <h2>{{ goalType|capitalize }}</h2>
                     <ul class="list-group">
                         {% for goal in goals[goalType] %}
-                            <li class="list-group-item">{{ goal.name }}</li>
+                            <li class="list-group-item">
+                                <a class="btn " href="{{ path('app_goal_show', {'id':goal.id}) }}">{{ goal.name }}</a>
+                            </li>
                         {% endfor %}
                     </ul>
                 </div><!-- .col -->
