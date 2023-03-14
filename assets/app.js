@@ -15,6 +15,41 @@ const $ = require('jquery');
 global.$ = global.jQuery = $;
 require('bootstrap');
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('[data-toggle="popover"]').popover();
+    if (document.getElementById('workweek_table')) {
+        highlightCurrentTime();
+    }
 });
+
+function highlightCurrentTime() {
+    // Get the current date and time
+    const now = new Date();
+
+// Get the day of the week (0 is Sunday, 1 is Monday, etc.)
+    const dayOfWeek = now.getDay();
+
+// Get the hour and minute of the day
+    const hour = now.getHours();
+// Get the table and all its rows
+    const table = document.getElementById("workweek_table");
+    const rows = table.getElementsByTagName("tr");
+
+// Loop through each row, starting with the second row (the first row is the header)
+    for (let i = 1; i < rows.length; i++) {
+        // Get the cells in the current row
+        const cells = rows[i].getElementsByTagName("td");
+
+        // Loop through each cell in the current row
+        for (let j = 0; j < cells.length; j++) {
+            // Check if this cell is in the current day and time range
+            if (j === dayOfWeek && hour >= i + 5 && hour < i + 6) {
+                // If it is, highlight the cell
+                cells[j].classList.add("highlight");
+            } else {
+                // Otherwise, remove any existing highlight from the cell
+                cells[j].classList.remove("highlight");
+            }
+        }
+    }
+}

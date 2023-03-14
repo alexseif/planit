@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'workweek_template'|trans }}{% endblock %}
+
+{% block body %}
+    <table class="table" id="workweek_table">
+        <thead>
+        <tr>
+            <th scope="col">{{ 'time'|trans }}</th>
+            {% for workday in workweek %}
+                <th scope="col">{{ workday }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for time, activities in workweek_template %}
+            <tr>
+                <th scope="row">{{ time }}</th>
+                {% for activity in activities %}
+                    <td>{{ activity }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

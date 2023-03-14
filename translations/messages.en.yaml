@@ -31,3 +31,7 @@ messages:
   no_results_description: 'No results found for your search.'
   no_results_description_2: 'Try to change your search criteria.'
   no_results_description_3: 'If you think this is an error, please contact us.'
+workday_template: 'Workday Template'
+time: Time
+activity: Activity
+workweek_template: 'WorkWeek Template'

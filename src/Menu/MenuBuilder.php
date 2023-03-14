@@ -29,6 +29,8 @@ class MenuBuilder
         ]);
 
         $menu->addChild('Goals', ['route' => 'app_goal_index']);
+        $menu->addChild('Workday Template', ['route' => 'app_workday_template']);
+        $menu->addChild('WorkWeek Template', ['route' => 'app_workweek_template']);
 
         return $menu;
     }
