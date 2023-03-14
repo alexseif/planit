@@ -11,6 +11,7 @@ entity:
   name: 'Name'
   professional: 'Professional'
   goal: 'Goal'
+  goals: 'Goals'
 
 actions:
   actions: 'Actions'
