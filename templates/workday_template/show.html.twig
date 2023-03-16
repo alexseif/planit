@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'entity.workday_template'|trans }}{% endblock %}
+{% block card_actions %}
+    <a class="btn btn-link" href="{{ path('app_workday_template_index') }}">{{ 'actions.back'|trans }}</a>
+    <a class="btn btn-link" href="{{ path('app_workday_template_edit', {'id': workday_template.id}) }}">{{ 'actions.edit'|trans }}</a>
+    {{ include('workday_template/_delete_form.html.twig') }}
+{% endblock %}
+{% block body %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>{{ 'entity.id'|trans }}</th>
+            <td>{{ workday_template.id }}</td>
+        </tr>
+        <tr>
+            <th>StartTime</th>
+            <td>{{ workday_template.startTime ? workday_template.startTime|date('H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>EndTime</th>
+            <td>{{ workday_template.endTime ? workday_template.endTime|date('H:i:s') : '' }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

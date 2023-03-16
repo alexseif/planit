@@ -32,6 +32,7 @@ class MenuBuilder
         $menu->addChild('Workday Template', ['route' => 'app_workday_template']);
         $menu->addChild('WorkWeek Template', ['route' => 'app_workweek_template']);
         $menu->addChild('Activity', ['route' => 'app_activity_index']);
+        $menu->addChild('Workday Template admin', ['route' => 'app_workday_template_index']);
 
         return $menu;
     }

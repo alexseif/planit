@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'entity.workday_template'|trans }}{% endblock %}
+{% block card_actions %}
+<a class="btn btn-outline-primary" href="{{ path('app_workday_template_new') }}">{{ 'actions.new'|trans }}</a>
+{% endblock %}
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>StartTime</th>
+                <th>EndTime</th>
+                <th>{{ 'entity.activity'|trans }}</th>
+                <th>{{ 'actions.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for workday_template in workday_templates %}
+            <tr>
+                <td>{{ workday_template.startTime ? workday_template.startTime|date('H:i:s') : '' }}</td>
+                <td>{{ workday_template.endTime ? workday_template.endTime|date('H:i:s') : '' }}</td>
+                <td>{{ workday_template.activity }}</td>
+                <td>
+                    <a href="{{ path('app_workday_template_show', {'id': workday_template.id}) }}">{{ 'actions.show'|trans }}</a>
+                    <a href="{{ path('app_workday_template_edit', {'id': workday_template.id}) }}">{{ 'actions.edit'|trans }}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">{{ "messages.no_results"|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

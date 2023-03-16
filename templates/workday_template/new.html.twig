@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'actions.new'|trans }} {{ "entity.workday_template"|trans }}{% endblock %}
+{% block card_actions %}
+    <a class="btn btn-link" href="{{ path('app_workday_template_index') }}">{{ 'actions.back'|trans }}</a>
+{% endblock %}
+
+{% block body %}
+    {{ include('workday_template/_form.html.twig') }}
+{% endblock %}

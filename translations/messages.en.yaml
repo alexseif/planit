@@ -13,6 +13,7 @@ entity:
   goal: 'Goal'
   goals: 'Goals'
   activity: 'Activity'
+  workday_template: 'Workday Template'
 
 actions:
   actions: 'Actions'
